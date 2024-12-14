@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Include Chart.js (via CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Crypto Tracker</h1>
+
+        <!-- Form to add new price -->
+        <section>
+            <h2>Add Crypto Price</h2>
+            <form id="save-price-form">
+                <label for="coin">Coin Name:</label>
+                <input type="text" id="coin" name="coin" placeholder="e.g., bitcoin" required>
+                <button type="submit">Save Price</button>
+            </form>
+        </section>
+
+        <!-- Section to filter and view saved prices -->
+        <section>
+            <h2>Saved Prices</h2>
+
+            <!-- Filter Form -->
+            <form id="filter-form">
+                <label for="filter-coin">Coin:</label>
+                <input type="text" id="filter-coin" name="coin" placeholder="e.g., bitcoin">
+                <label for="filter-date">Date:</label>
+                <input type="date" id="filter-date" name="date">
+                <button type="submit">Apply Filters</button>
+            </form>
+
+            <!-- Fetch All Prices Button -->
+            <button id="fetch-prices">Fetch All Prices</button>
+
+            <!-- Table to display prices -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Coin</th>
+                        <th>Price</th>
+                        <th>Created At</th>
+                    </tr>
+                </thead>
+                <tbody id="prices-table">
+                    <!-- Rows will be dynamically added -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- New Section for Line Chart -->
+        <section>
+            <h2>Crypto Price Trends</h2>
+            <!-- Canvas for the Chart.js line chart -->
+            <canvas id="price-chart" width="400" height="200"></canvas>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
