@@ -6,9 +6,6 @@ const cron = require('node-cron'); // Import cron
 
 const app = express();
 const PORT = process.env.PORT || 4000; // Use Render's assigned port or default to 4000
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
 const path = require('path');
 
 // Serve static files from the "public" folder
@@ -16,15 +13,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // MySQL connection pool
-const db = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: '6432',
-    database: 'crypto_tracker',
-    port: 3306,
-
-    
+const db = mysql.createPool({ 
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASS || '6432',
+    database: process.env.DB_NAME || 'crypto_tracker',
+    port: process.env.DB_PORT || 3306
 });
+
 
 
 // Save price route with database integration
