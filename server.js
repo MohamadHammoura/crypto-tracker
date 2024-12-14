@@ -14,10 +14,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // MySQL connection pool
 const db = mysql.createPool({
-    host: process.env.DB_HOST || 'localhost',
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASS || '6432',
-    database: process.env.DB_NAME || 'crypto_tracker',
+    host: process.env.DB_HOST || 'crypto-tracker-db.cnsaucggmfce.us-east-2.rds.amazonaws.com',                //'localhost',
+    user: process.env.DB_USER ||  'admin',                                                                    //'root',
+    password: process.env.DB_PASS ||   'a5_=W.w5_',                                                           // '6432',
+    database: process.env.DB_NAME ||     'crypto_tracker',                                                    //'crypto_tracker',
     port: process.env.DB_PORT || 3306,
 });
 
